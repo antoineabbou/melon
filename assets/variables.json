@@ -1,0 +1,36 @@
+{
+  "$DEBUG": 0,
+  "$breakpoints": {
+    "xxs": "375px",
+    "xs": "414px",
+    "s": "500px",
+    "m": "768px",
+    "l": "1024px",
+    "xl": "1280px",
+    "xxl": "1440px",
+    "xxxl": "1920px",
+    "xxxxl": "2160px"
+  },
+  "$baldinger": "baldinger",
+  "$baldinger-bold": "baldinger-bold",
+  "$paths": {
+    "images": "~/static/assets/images/",
+    "fonts": "~/static/assets/fonts/",
+    "svg": "~/static/assets/svg/",
+    "videos": "~/static/assets/videos/"
+  },
+  "$colors": {
+    "B": "#000000",
+    "W": "#ffffff"
+  },
+  "$width": {
+    "xs": "270px",
+    "s": "320px",
+    "m": "444px",
+    "l": "767px",
+    "xl": "1023px",
+    "xxl": "1279px",
+    "xxxl": "1439px",
+    "xxxxl": "1919px"
+  }
+}

@@ -1,0 +1,10 @@
+font-face(path, name, weight = normal, style = normal)
+  @font-face
+    font-family: name;
+    font-weight: weight
+    font-style: style
+    -webkit-font-smoothing: antialiased
+    src: url($paths-fonts + '' + path + '.woff2') format('woff2'),
+         url($paths-fonts + '' + path + '.woff') format('woff'),
+         url($paths-fonts + '' + path + '.eot') format('eot')
+
