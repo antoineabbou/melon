@@ -1,8 +1,12 @@
 {
   "home": {
-    "title": "homepage"
+    "title": "Home page"
   }, 
   "about": {
-    "title": "about page"
+    "title": "About page"
+  },
+  "menu": {
+    "home": "home", 
+    "about": "about"
   }
 }

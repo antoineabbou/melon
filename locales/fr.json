@@ -1,8 +1,12 @@
 {
   "home": {
-    "title": "page d'accueil"
+    "title": "Page d'accueil"
   }, 
   "about": {
-    "title": "page à propos"
+    "title": "Page à propos"
+  }, 
+  "menu": {
+    "home": "accueil", 
+    "about": "à propos"
   }
 }

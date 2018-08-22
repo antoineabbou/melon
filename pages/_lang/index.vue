@@ -1,10 +1,6 @@
 <template>
-  <section class="page page--home">
-    
-    <app-smooth-scroll> 
-      <p> {{ $t('home.title')}} </p>
-    </app-smooth-scroll>
-   
+  <section class="page page--home stagger">
+    <p class="title"> {{ $t('home.title')}} </p>
   </section>
 </template>
 
@@ -14,79 +10,132 @@
   } from 'vuex'
   import Emitter from '~/assets/js/utils/events'
   import THREE from '~/plugins/three.js'
-
-  // Components
-  import AppSmoothScroll from '~/components/utils/SmoothScroll.vue'
-
+  import {
+    TimelineMax
+  } from 'gsap'
+  
   export default {
-    components: {
-      AppSmoothScroll
-    },
-
     data() {
-      return {
-      }
+      return {}
     },
-
+  
     computed: {
       ...mapState([
         'locale'
       ])
     },
-
+  
     transition: {
       mode: 'out-in',
       css: false,
+  
       enter(el, done) {
         let tl = new TimelineMax({
           onComplete: done
         })
+  
+        tl.to(document.querySelectorAll('.stagger'), 0.3, {
+          opacity: 1,
+          ease: Expo.easeOut
+        })
+  
+        tl.to(document.querySelector('.transition-panel'), 1, {
+          left: 'auto',
+          width: '0%',
+          right: 0,
+          ease: Expo.easeOut
+        })
+  
+        tl.set(document.querySelector('.transition-panel'), {
+          left: '-100%'
+        })
+  
       },
-
-
+  
       leave(el, done) {
         let tl = new TimelineMax({
           onComplete: done
         })
-
+  
+        tl.to(document.querySelectorAll('.stagger'), 0.3, {
+          opacity: 0,
+          ease: Expo.easeOut
+        })
+  
+        tl.to(document.querySelector('.transition-panel'), 0.4, {
+          width: '100%',
+          left: 0,
+          ease: Expo.easeOut
+        }, 'start+=0.4')
+  
       },
     },
-
+  
     mounted() {
-      this.bindAll()
-      window.smooth.resize()
+      this.createScene()
+      this.onResize()
       this.addListeners()
     },
-
+  
     methods: {
-
-      bindAll() {
-        [
-          'onScroll'
-        ].forEach((fn) => (this[fn] = this[fn].bind(this)))
-      },
-
       addListeners() {
-        Emitter.on('ON_SCROLL_TICK', this.onScroll)
+        window.addEventListener('resize', this.onResize)
       },
-
+  
       removeListeners() {
-        Emitter.removeListener('ON_SCROLL_TICK', this.onScroll)
+        window.removeEventListener('resize', this.onResize)
       },
-
-      onScroll({
-        current,
-        bounding
-      }) {
-
+  
+      createScene() {
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  
+        this.renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: true
+        })
+        this.setRendererSize()
+        this.$el.appendChild(this.renderer.domElement);
+  
+        this.geometry = new THREE.BoxGeometry(1, 1, 1);
+        this.material = new THREE.MeshBasicMaterial({
+          color: 0x1A1A1A,
+          wireframe: true
+        });
+        this.cube = new THREE.Mesh(this.geometry, this.material);
+  
+        this.scene.add(this.cube);
+  
+        this.camera.position.z = 5;
+  
+        this.animate()
+      },
+  
+      animate() {
+        requestAnimationFrame(this.animate);
+  
+        this.cube.rotation.x += 0.01;
+        this.cube.rotation.y += 0.01;
+  
+        this.renderer.render(this.scene, this.camera);
+      },
+  
+      setRendererSize() {
+        this.width = window.innerWidth
+        this.height = window.innerHeight
+        this.renderer.setSize(this.width, this.height)
+        this.camera.aspect = this.width / this.height
+        this.camera.updateProjectionMatrix()
+      },
+  
+      onResize() {
+        this.setRendererSize()
       }
     },
-
+  
     beforeDestroy() {
       this.removeListeners()
     }
-
-
   }
 </script>
 

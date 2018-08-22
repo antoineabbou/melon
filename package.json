@@ -1,7 +1,7 @@
 {
-  "name": "starter-nuxt",
+  "name": "creative-starter-nuxt",
   "version": "1.0.0",
-  "description": "Nuxt.js starter",
+  "description": "A nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou",
   "author": "Antoine Abbou <abbouantoine@gmail.com>",
   "private": true,
   "scripts": {

@@ -20,7 +20,7 @@
     "videos": "~/static/assets/videos/"
   },
   "$colors": {
-    "B": "#000000",
+    "B": "#1A1A1A",
     "W": "#ffffff"
   },
   "$width": {

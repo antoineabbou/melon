@@ -7,18 +7,18 @@ module.exports = {
     htmlAttrs: {
       lang: 'fr',
     },
-    title: 'starter',
+    title: 'Starter nuxt.js | Creative development',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Starter nuxtJS" },
-      { name: 'theme-color', content: '#4848FF' },
-      { name: 'msapplication-TileColor', content: '#4848FF' },
+      { hid: 'description', name: 'description', content: "Starter nuxt.js | Creative development" },
+      { name: 'theme-color', content: '#1A1A1A' },
+      { name: 'msapplication-TileColor', content: '#1A1A1A' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       {
         hid: `og:title`,
         property: 'og:title',
-        content: 'starter nuxtJS'
+        content: 'Starter nuxt.js | Creative development'
       },
       {
         hid: 'og:type',
@@ -28,17 +28,17 @@ module.exports = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: "Starter nuxtJS"
+        content: "A nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou ✌️"
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'starter nuxtJS'
+        content: 'Starter nuxt.js | Creative development'
       },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: ''
+        content: 'https://github.com/antoineabbou/creative-starter-nuxt'
       },
       {
         hid: 'og:image:width',
@@ -63,12 +63,12 @@ module.exports = {
       {
         hid: 'twitter:title',
         property: 'twitter:title',
-        content: 'starter nuxtJS'
+        content: 'Starter nuxt.js | Creative developmentS'
       },
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content: "Starter nuxtJS"
+        content: "Starter nuxt.js | Creative developmentS"
       },
       {
         hid: 'twitter:site',
@@ -91,7 +91,7 @@ module.exports = {
       { rel: 'apple-touch-icon', type: 'image/x-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
-      { rel: 'mask-icon', color: '#4848FF', href: '/favicons/safari-pinned-tab.svg' },
+      { rel: 'mask-icon', color: '#1A1A1A', href: '/favicons/safari-pinned-tab.svg' },
       { rel: 'manifest', href: '/assets/favicons/manifest.webmanifest', crossorigin: "use-credentials" }
     ],
     script: []
