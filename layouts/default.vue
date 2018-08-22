@@ -3,6 +3,7 @@
     <app-smooth-scroll>
       <!-- transition panel is just useful for transition between pages -->
       <div class="transition-panel"> </div> 
+      <app-logo/>
       <app-header class="stagger" />
       <nuxt/>
       <app-footer class="stagger" />
@@ -13,6 +14,7 @@
 <script>
   import AppHeader from '~/components/Header.vue'
   import AppFooter from '~/components/Footer.vue'
+  import AppLogo from '~/components/Logo.vue'
   import AppSmoothScroll from '~/components/utils/SmoothScroll.vue'
   
   if (process.browser) {
@@ -23,6 +25,7 @@
     components: {
       AppHeader,
       AppFooter,
+      AppLogo,
       AppSmoothScroll
     },
   

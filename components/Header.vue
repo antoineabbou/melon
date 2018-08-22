@@ -48,11 +48,12 @@ export default {
   position absolute 
   z-index 1
   width 100%
-  top 30px
+  top 80px
   text-align center
   
   +above($breakpoints-m)
     width auto
+    top 30px
     right 30px
   
   +above($breakpoints-l) 

@@ -7,18 +7,18 @@ module.exports = {
     htmlAttrs: {
       lang: 'fr',
     },
-    title: 'Starter nuxt.js | Creative development',
+    title: 'Melon | Starter nuxt.js | Creative development',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Starter nuxt.js | Creative development" },
+      { hid: 'description', name: 'description', content: "Melon | Starter nuxt.js | Creative development" },
       { name: 'theme-color', content: '#1A1A1A' },
       { name: 'msapplication-TileColor', content: '#1A1A1A' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       {
         hid: `og:title`,
         property: 'og:title',
-        content: 'Starter nuxt.js | Creative development'
+        content: 'Melon | Starter nuxt.js | Creative development'
       },
       {
         hid: 'og:type',
@@ -28,12 +28,12 @@ module.exports = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: "A nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou ✌️"
+        content: "Melon is a nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou ✌️"
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'Starter nuxt.js | Creative development'
+        content: 'Melon | Starter nuxt.js | Creative development'
       },
       {
         hid: 'og:url',
@@ -63,12 +63,12 @@ module.exports = {
       {
         hid: 'twitter:title',
         property: 'twitter:title',
-        content: 'Starter nuxt.js | Creative developmentS'
+        content: 'Melon | Starter nuxt.js | Creative development'
       },
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content: "Starter nuxt.js | Creative developmentS"
+        content: "Melon | Starter nuxt.js | Creative development"
       },
       {
         hid: 'twitter:site',

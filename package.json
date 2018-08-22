@@ -1,7 +1,7 @@
 {
-  "name": "creative-starter-nuxt",
+  "name": "melon",
   "version": "1.0.0",
-  "description": "A nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou",
+  "description": "Melon is a nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou",
   "author": "Antoine Abbou <abbouantoine@gmail.com>",
   "private": true,
   "scripts": {

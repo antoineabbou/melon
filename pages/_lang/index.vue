@@ -97,14 +97,14 @@
         this.setRendererSize()
         this.$el.appendChild(this.renderer.domElement);
   
-        this.geometry = new THREE.BoxGeometry(1, 1, 1);
+        this.geometry = new THREE.SphereGeometry(1, 32, 32)
         this.material = new THREE.MeshBasicMaterial({
           color: 0x1A1A1A,
-          wireframe: true
-        });
-        this.cube = new THREE.Mesh(this.geometry, this.material);
+          wireframe: true 
+        })
+        this.sphere = new THREE.Mesh(this.geometry, this.material)
   
-        this.scene.add(this.cube);
+        this.scene.add(this.sphere)
   
         this.camera.position.z = 5;
   
@@ -114,8 +114,8 @@
       animate() {
         requestAnimationFrame(this.animate);
   
-        this.cube.rotation.x += 0.01;
-        this.cube.rotation.y += 0.01;
+        this.sphere.rotation.x += 0.01;
+        this.sphere.rotation.y += 0.01;
   
         this.renderer.render(this.scene, this.camera);
       },
