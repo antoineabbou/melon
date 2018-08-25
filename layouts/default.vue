@@ -1,6 +1,6 @@
 <template>
   <div id="application" class="application">
-    <app-smooth-scroll>
+    <app-smooth-scroll :ease='0.1'>
       <!-- transition panel is just useful for transition between pages -->
       <div class="transition-panel"> </div> 
       <app-logo/>

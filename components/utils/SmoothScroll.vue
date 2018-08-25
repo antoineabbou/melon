@@ -20,7 +20,20 @@
       this.initScroll()
     },
   
-    props: ['native', 'disableHeaderHidden'],
+    props: {
+      native: {
+        default: true,
+        type: Boolean,
+      },
+      disableHeaderHidden: {
+        default: true,
+        type: Boolean,
+      },
+      ease: {
+        default: .1,
+        type: Number,
+      }
+    },
   
     methods: {
       addListeners() {
@@ -45,9 +58,9 @@
       initScroll() {
         if (this.smooth) return
         this.smooth = new Smooth({
-          native: true,
+          native: this.native,
           section: this.$refs.vs,
-          ease: 0.1,
+          ease: this.ease,
           preload: true,
           callback: () => {
             Emitter.emit('ON_SCROLL_TICK', this.smooth.vars)
