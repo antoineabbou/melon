@@ -1,12 +1,16 @@
 {
   "home": {
     "title": "Home page"
-  }, 
+  },
   "about": {
     "title": "About page"
   },
   "menu": {
-    "home": "home", 
+    "home": "home",
     "about": "about"
+  },
+  "footer": {
+    "description": "A <a target=\"blank\" href=\"https://nuxtjs.org/\"> Nuxt.js </a> for creative development built by <a href=\"https://twitter.com/antoineabbou\" target=\"_blank\"> Antoine Abbou ️️️️️✌️️",
+    "link": "Github : <a target=\"blank\" href=\"https://github.com/antoineabbou/melon\"> Melon </a>"
   }
 }

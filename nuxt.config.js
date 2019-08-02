@@ -1,24 +1,26 @@
 import path from 'path'
-module.exports = {
+
+export default {
+  mode: 'universal',
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     htmlAttrs: {
-      lang: 'fr',
+      lang: 'en'
     },
-    title: 'Melon | Starter nuxt.js | Creative development',
+    title: 'Melon | Starter - Nuxt.js | Creative development',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Melon | Starter nuxt.js | Creative development" },
+      { hid: 'description', name: 'description', content: 'Melon | Starter - Nuxt.js | Creative development' },
       { name: 'theme-color', content: '#1A1A1A' },
       { name: 'msapplication-TileColor', content: '#1A1A1A' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       {
         hid: `og:title`,
         property: 'og:title',
-        content: 'Melon | Starter nuxt.js | Creative development'
+        content: 'Melon | Starter - Nuxt.js | Creative development'
       },
       {
         hid: 'og:type',
@@ -28,12 +30,12 @@ module.exports = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: "Melon is a nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou ✌️"
+        content: 'Melon is a nuxt.js starter for creative development, using Three, Pixi, SmoothScroll and i18n, made by Antoine Abbou ✌️'
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'Melon | Starter nuxt.js | Creative development'
+        content: 'Melon | Starter - Nuxt.js | Creative development'
       },
       {
         hid: 'og:url',
@@ -63,12 +65,12 @@ module.exports = {
       {
         hid: 'twitter:title',
         property: 'twitter:title',
-        content: 'Melon | Starter nuxt.js | Creative development'
+        content: 'Melon | Starter - Nuxt.js | Creative development'
       },
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content: "Melon | Starter nuxt.js | Creative development"
+        content: 'Melon | Starter - Nuxt.js | Creative development'
       },
       {
         hid: 'twitter:site',
@@ -84,92 +86,99 @@ module.exports = {
         hid: 'twitter:url',
         property: 'twitter:url',
         content: ''
-      },
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/assets/favicons/favicon.ico' },
-      { rel: 'apple-touch-icon', type: 'image/x-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
-      { rel: 'mask-icon', color: '#1A1A1A', href: '/favicons/safari-pinned-tab.svg' },
-      { rel: 'manifest', href: '/assets/favicons/manifest.webmanifest', crossorigin: "use-credentials" }
-    ],
-    script: []
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  modules: [
-  ],
-
-  env: {
-    API_URL: process.env.API_URL || '',
-    BASE_URL: process.env.BASE_URL || '',
-    NAME_ENV: process.env.NAME_ENV || 'PROD starter nuxtJS'
-  },
-
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#ffffff' },
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#fff' },
+  /*
+   ** Global CSS
+   */
   css: [
-    {src: '~/assets/stylus/main.styl', lang: 'stylus'}
+    {
+      src: '~/assets/styles/main.styl',
+      lang: 'stylus'
+    }
   ],
   router: {
-    middleware: 'i18n',
+    middleware: 'i18n'
   },
+  generate: {
+    routes: [
+      '/',
+      '/about',
+      // English
+      '/en/',
+      '/en/about'
+    ]
+  },
+  /*
+   ** Plugins to load before mounting the App
+   */
   plugins: [
+    '~/plugins/components.js',
     '~/plugins/i18n.js',
-    {
-      src: '~/plugins/pixi',
-      ssr: false
-    },
     {
       src: '~/plugins/three',
       ssr: false
+    },
+    {
+      src: '~/plugins/pixi',
+      ssr: false
     }
   ],
-  generate: {
-    routes: []
-  },
   /*
-  ** Build configuration
-  */
+   ** Nuxt.js modules
+   */
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    '@nuxtjs/eslint-module',
+    'nuxt-payload-extractor'
+  ],
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {},
+  /*
+   ** Build configuration
+   */
   build: {
     /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev }) {
-      if (isDev && process.client) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
 
-      const stylusRules = config.module.rules.find(rule => rule.test.toString().indexOf("styl") > -1)
-      if(stylusRules && Array.isArray(stylusRules.oneOf)) {
-        stylusRules.oneOf.forEach(one => {
+      config.module.rules.push({
+        test: /\.(glsl|vs|fs)$/,
+        loader: 'raw-loader'
+      })
+
+      const stylusRules = config.module.rules.find(
+        rule => rule.test.toString().indexOf('styl') > -1
+      )
+      if (stylusRules && Array.isArray(stylusRules.oneOf)) {
+        stylusRules.oneOf.forEach((one) => {
           if (Array.isArray(one.use)) {
-            one.use.forEach(u => {
-              if (u.loader == "stylus-loader") {
-                const stylusOptions = u.options;
-                stylusOptions.paths = [
-                  path.resolve('./assets/stylus')
-                ]
+            one.use.forEach((u) => {
+              if (u.loader === 'stylus-loader') {
+                const stylusOptions = u.options
+                stylusOptions.paths = [path.resolve('./assets/styles')]
 
                 stylusOptions.import = [
                   '~rupture/rupture/index.styl',
                   'base/index.styl'
                 ]
               }
-            });
+            })
           }
-        });
+        })
       }
-
-      vendor: ['pixi.js', 'three.js']
-
     }
-
   }
 }

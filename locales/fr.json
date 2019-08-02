@@ -1,12 +1,16 @@
 {
   "home": {
     "title": "Page d'accueil"
-  }, 
+  },
   "about": {
     "title": "Page à propos"
-  }, 
+  },
   "menu": {
-    "home": "accueil", 
+    "home": "accueil",
     "about": "à propos"
+  },
+  "footer": {
+    "description": "Un starter <a target=\"blank\" href=\"https://fr.nuxtjs.org/\"> Nuxt.js </a> pour le développement créatif créé par <a href=\"https://twitter.com/antoineabbou\" target=\"_blank\"> Antoine Abbou ️️️️️✌️️",
+    "link": "Github : <a target=\"blank\" href=\"https://github.com/antoineabbou/melon\"> Melon </a>"
   }
 }

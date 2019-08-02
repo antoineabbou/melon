@@ -1,84 +1,89 @@
-<template>
-  <div id="application" class="application">
-    <app-smooth-scroll :ease='0.1'>
-      <!-- transition panel is just useful for transition between pages -->
-      <div class="transition-panel"> </div> 
-      <app-logo/>
-      <app-header class="stagger" />
-      <nuxt/>
-      <app-footer class="stagger" />
-    </app-smooth-scroll>
+<template lang="html">
+  <div class="app">
+    <m-loader />
+    <div class="app__wrapper" :class="$store.getters['loading/isLoaded'] ? 'is-loaded' : 'is-loading'">
+      <m-header />
+      <main>
+        <nuxt />
+        <div class="canvas-webgl" />
+      </main>
+      <m-footer />
+    </div>
   </div>
 </template>
 
 <script>
-  import AppHeader from '~/components/Header.vue'
-  import AppFooter from '~/components/Footer.vue'
-  import AppLogo from '~/components/Logo.vue'
-  import AppSmoothScroll from '~/components/utils/SmoothScroll.vue'
-  
-  if (process.browser) {
-    require('smooth-scrolling/smooth-scrolling')
-  }
-  
-  export default {
-    components: {
-      AppHeader,
-      AppFooter,
-      AppLogo,
-      AppSmoothScroll
+import { mapGetters } from 'vuex'
+import throttle from 'lodash.throttle'
+import Emitter from '~/assets/js/utils/events'
+
+export default {
+  computed: {
+    ...mapGetters({
+      isMobile: 'device/vpSize'
+    })
+  },
+
+  mounted() {
+    this.bindAll()
+    this.onResize()
+    this.addListeners()
+  },
+
+  beforeDestroy() {
+    this.removeListeners()
+  },
+
+  methods: {
+    bindAll() {
+      ['onResize'].forEach(fn => (this[fn] = this[fn].bind(this)))
     },
-  
-    mounted() {
-      this.$nextTick(() => {
-        window.smooth.resize()
-      })
+
+    addListeners() {
+      window.addEventListener('resize', throttle(() => {
+        this.onResize()
+      }, 100))
     },
-  
-    methods: {
-      bindAll() {
-        [
-          'onScroll'
-        ].forEach((fn) => (this[fn] = this[fn].bind(this)))
-      },
-  
-      addListeners() {
-        Emitter.on('ON_SCROLL_TICK', this.onScroll)
-      },
-  
-      removeListeners() {
-        Emitter.removeListener('ON_SCROLL_TICK', this.onScroll)
-      },
-  
-      onScroll({
-        current,
-        bounding
-      }) {
-  
-      }
+
+    removeListeners() {
+      window.removeEventListener('resize', throttle(() => {
+        this.onResize()
+      }, 100))
     },
-  
-    beforeDestroy() {
-      this.removeListeners()
+
+    onResize() {
+      Emitter.emit('GLOBAL:RESIZE')
+      this.$store.dispatch('device/setVPSize')
+      this.$store.dispatch('device/setMobile')
     }
   }
+}
 </script>
 
 <style lang="stylus" scoped>
-
-.application
-  position relative
+.app
+  font-family objectsans-regular
   overflow hidden
 
-  .transition-panel 
-    width 100vw 
-    height 100vh 
-    position absolute 
-    background $colors-B
-    left -100%
-    z-index 10
+  &__wrapper
+    transition opacity 1s ease-out
 
+    &.is-loading
+      opacity 0
+      visibility hidden
+
+    &.is-loaded
+      opacity 1
+      visibility visible
+
+    .canvas-webgl
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      width 100%
+      height var(--app-height)
+      pointer-events none
+      z-index 2
 </style>
-
-
-        

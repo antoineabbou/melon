@@ -1,14 +1,13 @@
 # Melon
 
-![alt text](http://antoineabbou.fr/melon.png)
+![alt text](http://antoineabbou.fr/melon-cover.png)
 
 
-Nuxt.js is a framework that helps you build server rendered Vue.js applications easily. It abstracts most of the complex configuration involved in managing things like asynchronous data, middleware, and routing.
-
+[Nuxt.js](https://nuxt.js.org/) is a framework that helps you build server rendered Vue.js applications easily. It abstracts most of the complex configuration involved in managing things like asynchronous data, middleware, and routing.
 
 Melon is a Nuxt.js starter for creative development. 
 
-It includes [Three](https://threejs.org/), [Pixi.js](https://pixijs.io), [SmoothScroll](https://github.com/baptistebriel/smooth-scrolling), [i18n](https://www.npmjs.com/package/i18n) and [vueX](https://vuex.vuejs.org/). 
+It includes [Three](https://threejs.org/), [Pixi.js](https://pixijs.io), [i18n](https://www.npmjs.com/package/i18n) and [vueX](https://vuex.vuejs.org/).
 
 ## Installation
 
@@ -57,6 +56,3 @@ Please make sure to update tests as appropriate.
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)

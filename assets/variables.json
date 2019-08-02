@@ -1,36 +1,39 @@
 {
-  "$DEBUG": 0,
+  "$DEBUG": true,
+  "$colors": {
+    "main-black": "#000000",
+    "main-white": "#FFFFFF"
+  },
+  "$layout": {
+    "container": "90%",
+    "container-xxl": "1190px"
+  },
+  "$margins": {
+    "xxxs": "10px",
+    "xxs": "15px",
+    "xs": "20px",
+    "s": "25px",
+    "m": "30px",
+    "l": "35px",
+    "xl": "40px",
+    "xxl": "45px",
+    "xxxl": "50px"
+  },
+  "$paths": {
+    "svg": "~assets/svg/",
+    "images": "~assets/images/",
+    "fonts": "~assets/fonts/"
+  },
   "$breakpoints": {
-    "xxs": "375px",
-    "xs": "414px",
+    "xxxs": "320px",
+    "xxs": "365px",
+    "xs": "410px",
     "s": "500px",
     "m": "768px",
     "l": "1024px",
     "xl": "1280px",
     "xxl": "1440px",
-    "xxxl": "1920px",
-    "xxxxl": "2160px"
-  },
-  "$baldinger": "baldinger",
-  "$baldinger-bold": "baldinger-bold",
-  "$paths": {
-    "images": "~/static/assets/images/",
-    "fonts": "~/static/assets/fonts/",
-    "svg": "~/static/assets/svg/",
-    "videos": "~/static/assets/videos/"
-  },
-  "$colors": {
-    "B": "#1A1A1A",
-    "W": "#ffffff"
-  },
-  "$width": {
-    "xs": "270px",
-    "s": "320px",
-    "m": "444px",
-    "l": "767px",
-    "xl": "1023px",
-    "xxl": "1279px",
-    "xxxl": "1439px",
-    "xxxxl": "1919px"
+    "xxxl": "1600px",
+    "xxxxl": "1920px"
   }
-}
+ }
