@@ -7,7 +7,7 @@
 
 Melon is a Nuxt.js starter for creative development. 
 
-It includes [Three](https://threejs.org/), [Pixi.js](https://pixijs.io), [i18n](https://www.npmjs.com/package/i18n) and [vueX](https://vuex.vuejs.org/).
+It includes [Three](https://threejs.org/), [Pixi.js](https://pixijs.io), [i18n](https://www.npmjs.com/package/i18n), [Stylus](http://stylus-lang.com/) and [vueX](https://vuex.vuejs.org/).
 
 You can find the demo there : [Melon](http://melon.antoineabbou.fr)
 

@@ -23,10 +23,12 @@ export default {
       ease: Expo.easeOut
     })
 
-    tl.to([this.$refs.loader, this.$refs.title], 1, {
-      autoAlpha: 0,
-      ease: Expo.easeOut
-    })
+    setTimeout(() => {
+      tl.to([this.$refs.loader, this.$refs.title], 1, {
+        autoAlpha: 0,
+        ease: Expo.easeOut
+      })
+    }, 1000) // FAKE LOADING | REMOVE IT
   }
 }
 </script>
